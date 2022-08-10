@@ -1,5 +1,7 @@
 package sprite;
 import appLogic.antCollection;
+import appLogic.appFlow;
+
 /**
  * spirit interface.
  */
@@ -19,11 +21,11 @@ public interface Sprite {
      * add the spirit to the game.
      *
      */
-    void addToGame();
+    void addToGame(appFlow appFlow);
 
     /**
      * remove the spirit to the game.
      *
      */
-    void removeFromGame();
+    void removeFromGame(appFlow appFlow);
 }
