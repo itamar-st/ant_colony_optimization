@@ -1,16 +1,17 @@
 package appLogic;
 
 import sprite.Ant;
+import sprite.Sprite;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class appFlow {
     private Info info;
-    private antCollection antCollection;
 
-    public appFlow(Info info, antCollection antCollection) {
+    public appFlow(Info info) {
         this.info = info;
-        this.antCollection = antCollection;
     }
-
     public Info getInfo() {
         return info;
     }
@@ -19,14 +20,19 @@ public class appFlow {
         this.info = info;
     }
 
-    public antCollection getAntCollection() {
-        return antCollection;
-    }
-
     public void addToApp(Ant ant) {
-        this.antCollection.addAnt(ant);
+        info.addAnt(ant);
     }
     public void removeFromApp(Ant ant) {
-        this.antCollection.removeAnt(ant);
+        info.removeAnt(ant);
+    }
+    public void doOneRound(){
+        List<Ant> ants = new ArrayList<>(this.info.getAntCollection().getAnts());
+        for (Ant a: ants) {
+            a.timePassed();
+            if(a.getDirectionOfNextStep() == 8){
+                a.removeFromGame(this);
+            }
+        }
     }
 }

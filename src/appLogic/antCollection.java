@@ -2,10 +2,15 @@ package appLogic;
 
 import sprite.Ant;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class antCollection {
     private List<Ant> ants;
+
+    public antCollection() {
+        this.ants = new ArrayList<>();
+    }
 
     public List<Ant> getAnts() {
         return ants;

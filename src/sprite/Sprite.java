@@ -28,4 +28,9 @@ public interface Sprite {
      *
      */
     void removeFromGame(appFlow appFlow);
-}
+    int getX();
+    int getY();
+    void setX(int x);
+    void setY(int y);
+
+    }
