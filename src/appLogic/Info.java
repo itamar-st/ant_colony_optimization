@@ -5,6 +5,7 @@ import sprite.Coordinates;
 import sprite.Sprite;
 
 import java.util.List;
+import java.util.Map;
 
 public class Info {
     public static int MAP_SIZE = 10;
@@ -106,11 +107,11 @@ public class Info {
         System.out.print("\033[H\033[2J");
         System.out.flush();
         //todo: wrong!!!!
-        this.map = new int[10][10];
+        this.map = new int[MAP_SIZE][MAP_SIZE];
         setMap(this.antCollection.getAnts());
         System.out.println("map:");
-        for (int i = 0; i < 10; i++) { //this equals to the row in our matrix.
-            for (int j = 0; j < 10; j++) { //this equals to the column in each row.
+        for (int i = 0; i < MAP_SIZE; i++) { //this equals to the row in our matrix.
+            for (int j = 0; j < MAP_SIZE; j++) { //this equals to the column in each row.
                 System.out.print(map[i][j] + " ");
             }
             System.out.println(); //change line on console as row comes to end in the matrix.
@@ -118,8 +119,8 @@ public class Info {
     }
     public void printPheromoneMap(){
         System.out.println("pheromone map:");
-        for (int i = 0; i < 10; i++) { //this equals to the row in our matrix.
-            for (int j = 0; j < 10; j++) { //this equals to the column in each row.
+        for (int i = 0; i < MAP_SIZE; i++) { //this equals to the row in our matrix.
+            for (int j = 0; j < MAP_SIZE; j++) { //this equals to the column in each row.
                 System.out.print(pheromoneMap[i][j] + " ");
             }
             System.out.println(); //change line on console as row comes to end in the matrix.

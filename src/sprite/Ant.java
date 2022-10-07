@@ -3,7 +3,7 @@ package sprite;
 import appLogic.Info;
 import appLogic.Velocity;
 import appLogic.antCollection;
-import appLogic.appFlow;
+import appLogic.AppFlow;
 
 import java.util.*;
 
@@ -15,6 +15,7 @@ public class Ant implements Sprite {
     private Info info;
     private Velocity velocity = new Velocity(0, 0);
     private Stack<Integer> lastSteps;
+    private antCollection antCollection;
 
 
     public Ant() {
@@ -147,12 +148,12 @@ public class Ant implements Sprite {
     }
 
     @Override
-    public void addToGame(appFlow appFlow) {
+    public void addToGame(AppFlow appFlow) {
         appFlow.addToApp(this);
     }
 
     @Override
-    public void removeFromGame(appFlow appFlow) {
+    public void removeFromGame(AppFlow appFlow) {
         appFlow.removeFromApp(this);
     }
 
