@@ -63,14 +63,14 @@ public class Info {
      */
     public int[] getCloseEnv(int x, int y){
         int[] arr = new int[8];
-        arr[0] = pheromoneMap[x-1][y-1];
-        arr[1] = pheromoneMap[x-1][y];
-        arr[2] = pheromoneMap[x-1][y+1];
-        arr[3] = pheromoneMap[x][y-1];
-        arr[4] = pheromoneMap[x][y+1];
-        arr[5] = pheromoneMap[x+1][y-1];
-        arr[6] = pheromoneMap[x+1][y];
-        arr[7] = pheromoneMap[x+1][y+1];
+        arr[0] = pheromoneMap[y-1][x-1];
+        arr[1] = pheromoneMap[y-1][x];
+        arr[2] = pheromoneMap[y-1][x+1];
+        arr[3] = pheromoneMap[y][x-1];
+        arr[4] = pheromoneMap[y][x+1];
+        arr[5] = pheromoneMap[y+1][x-1];
+        arr[6] = pheromoneMap[y+1][x];
+        arr[7] = pheromoneMap[y+1][x+1];
         return arr;
     }
 //    public <T> List<T> getCloseEnv(int x, int y, T[][] map){

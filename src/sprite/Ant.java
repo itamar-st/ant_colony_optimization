@@ -20,7 +20,7 @@ public class Ant implements Sprite {
 
     public Ant(Info info) {
         this.x = 4;
-        this.y = 4;
+        this.y = 3;
         this.directionOfNextStep = 4;
         this.hasFood = false;
         this.info = info;
@@ -65,6 +65,7 @@ public class Ant implements Sprite {
                     int j = 0;
                     int sum = 0;
                     // random num between 0-totalSum
+                    // todo: add 10% chance of random movment
                     int goalNUm = rand.nextInt(totalSum)+1;
                     //get to the first index (j) that contributes enough for reaching the goal number
                     while (sum < goalNUm) {
