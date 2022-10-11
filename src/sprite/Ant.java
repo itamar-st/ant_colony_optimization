@@ -18,12 +18,12 @@ public class Ant implements Sprite {
     private antCollection antCollection;
 
 
-    public Ant() {
+    public Ant(Info info) {
         this.x = 4;
         this.y = 4;
         this.directionOfNextStep = 4;
         this.hasFood = false;
-        this.info = new Info();
+        this.info = info;
         lastSteps = new Stack<>();
         lastSteps.push(7 - directionOfNextStep);
     }
@@ -60,16 +60,18 @@ public class Ant implements Sprite {
                 if (totalSum == 0) {
                     totalSum = 8;
 //                directionOfNextStep = 7;
-                    directionOfNextStep = rand.nextInt(totalSum);
+                    directionOfNextStep = rand.nextInt(totalSum+1);
                 } else {
                     int j = 0;
                     int sum = 0;
-                    int index = rand.nextInt(totalSum);
-                    while (sum < index) {
+                    // random num between 0-totalSum
+                    int goalNUm = rand.nextInt(totalSum)+1;
+                    //get to the first index (j) that contributes enough for reaching the goal number
+                    while (sum < goalNUm) {
                         sum += arr[j++];
                     }
 //                directionOfNextStep = 7;
-                    directionOfNextStep = index;
+                    directionOfNextStep = j-1;
                 }
                 // the last step is in the opposite direction.
                 lastSteps.push(7 - directionOfNextStep);

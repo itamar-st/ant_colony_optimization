@@ -35,8 +35,8 @@ public class AppFlow {
             a.timePassed();
             // if the ant is designate to exit the app
             if(a.getDirectionOfNextStep() == 8){
-                a.removeFromGame(this);
-                //todo : remove from app?
+//                a.removeFromGame(this);
+                removeFromApp(a);
             }
         }
     }

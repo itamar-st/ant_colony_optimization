@@ -30,8 +30,11 @@ public class Info {
         this.evaporationRate = 0.5;
         this.antCollection = new antCollection();
     }
-    public void setPheromone(int i, int j, int val){
+    public void setPheromoneInCurrLocation(int i, int j, int val){
         this.pheromone[i][j] = val;
+    }
+    public void setPheromone(int i, int j, int val){
+        this.pheromoneMap[i][j] = val;
     }
     public int caclCost(Coordinates[] locationArr){
         int sum = 0;
@@ -61,12 +64,12 @@ public class Info {
     public int[] getCloseEnv(int x, int y){
         int[] arr = new int[8];
         arr[0] = pheromoneMap[x-1][y-1];
-        arr[1] = pheromoneMap[x][y-1];
-        arr[2] = pheromoneMap[x+1][y-1];
-        arr[3] = pheromoneMap[x-1][y];
-        arr[4] = pheromoneMap[x+1][y];
-        arr[5] = pheromoneMap[x-1][y+1];
-        arr[6] = pheromoneMap[x][y+1];
+        arr[1] = pheromoneMap[x-1][y];
+        arr[2] = pheromoneMap[x-1][y+1];
+        arr[3] = pheromoneMap[x][y-1];
+        arr[4] = pheromoneMap[x][y+1];
+        arr[5] = pheromoneMap[x+1][y-1];
+        arr[6] = pheromoneMap[x+1][y];
         arr[7] = pheromoneMap[x+1][y+1];
         return arr;
     }
@@ -118,6 +121,7 @@ public class Info {
         }
     }
     public void printPheromoneMap(){
+        System.out.print("\033[H\033[2J");
         System.out.println("pheromone map:");
         for (int i = 0; i < MAP_SIZE; i++) { //this equals to the row in our matrix.
             for (int j = 0; j < MAP_SIZE; j++) { //this equals to the column in each row.
