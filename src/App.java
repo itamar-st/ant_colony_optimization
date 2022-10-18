@@ -5,9 +5,9 @@ import sprite.Ant;
 public class App {
     public static void main(String[] args) {
         Info info = new Info();
-        info.setPheromone(4,5,1);
-        info.setPheromone(5,5,1);
-        info.setPheromone(6,6,1);
+        info.setPheromone(4,5,5);
+        info.setPheromone(5,5,5);
+        info.setPheromone(6,6,5);
         Ant a1 = new Ant(info);
         AppFlow appFlow = new AppFlow(info);
         a1.addToGame(appFlow);

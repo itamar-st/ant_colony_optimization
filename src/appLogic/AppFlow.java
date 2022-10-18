@@ -39,5 +39,6 @@ public class AppFlow {
                 removeFromApp(a);
             }
         }
+        info.applyEvaporation();
     }
 }

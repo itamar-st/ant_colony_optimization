@@ -88,7 +88,7 @@ public class Ant implements Sprite {
         // if the ant didn't get home yet
         if(!lastSteps.isEmpty()){
             directionOfNextStep =  lastSteps.pop();
-            info.addPheromoneInCurrLocation(this.x, this.y, 1);
+            info.addPheromoneInCurrLocation(this.x, this.y, 2);
         }
         else {
             hasFood = false;

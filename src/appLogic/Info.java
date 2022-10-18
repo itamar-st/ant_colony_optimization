@@ -15,7 +15,7 @@ public class Info {
     private int[][] map;
     private int[][] costs;
     private double[][] pheromone;
-    private double evaporationRate;
+    private int evaporationRate;
     private antCollection antCollection;
 
     public Info(){
@@ -26,13 +26,28 @@ public class Info {
                                     {5, 0, 4, 8},
                                     {15, 4, 0, 1},
                                     {4, 8, 1, 0}};
-        this.pheromone = new double[MAP_SIZE][MAP_SIZE];
-        this.evaporationRate = 0.5;
+//        this.pheromone = new double[MAP_SIZE][MAP_SIZE];
+        this.evaporationRate = 1;
         this.antCollection = new antCollection();
     }
     public void addPheromoneInCurrLocation(int x, int y, int val){
         this.pheromoneMap[y][x] += val;
     }
+    public void applyEvaporation(int x, int y){
+        if(pheromoneMap[y][x] != 0){
+            this.pheromoneMap[y][x] -= evaporationRate;
+        }
+    }
+    public void applyEvaporation() {
+        for (int i = 0; i < MAP_SIZE; i++) { //this equals to the row in our matrix.
+            for (int j = 0; j < MAP_SIZE; j++) { //this equals to the column in each row.
+                if (pheromoneMap[i][j] != 0) {
+                    this.pheromoneMap[i][j] -= evaporationRate;
+                }
+            }
+        }
+    }
+
     public void setPheromone(int i, int j, int val){
         this.pheromoneMap[i][j] = val;
     }
