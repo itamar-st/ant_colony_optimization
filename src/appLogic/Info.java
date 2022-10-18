@@ -30,8 +30,8 @@ public class Info {
         this.evaporationRate = 0.5;
         this.antCollection = new antCollection();
     }
-    public void setPheromoneInCurrLocation(int i, int j, int val){
-        this.pheromone[i][j] = val;
+    public void addPheromoneInCurrLocation(int x, int y, int val){
+        this.pheromoneMap[y][x] += val;
     }
     public void setPheromone(int i, int j, int val){
         this.pheromoneMap[i][j] = val;
@@ -73,18 +73,6 @@ public class Info {
         arr[7] = pheromoneMap[y+1][x+1];
         return arr;
     }
-//    public <T> List<T> getCloseEnv(int x, int y, T[][] map){
-//        List<T> paddingValues = new ArrayList<>(8);
-//        paddingValues.add(map[x-1][y-1]);
-//        paddingValues.add(map[x][y-1]);
-//        paddingValues.add(map[x+1][y-1]);
-//        paddingValues.add(map[x-1][y]);
-//        paddingValues.add(map[x+1][y]);
-//        paddingValues.add(map[x-1][y+1]);
-//        paddingValues.add(map[x][y+1]);
-//        paddingValues.add(map[x+1][y+1]);
-//        return paddingValues;
-//    }
 
     public void addAnt(Ant ant) {
         this.antCollection.addAnt(ant);
